@@ -1,0 +1,24 @@
+{
+  "name": "postulacion",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "serverless offline",
+    "deploy": "serverless deploy"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.124",
+    "@types/mysql": "^2.15.22",
+    "esbuild": "^0.19.4",
+    "serverless": "^3.35.2",
+    "serverless-esbuild": "^1.48.5",
+    "serverless-offline": "^13.2.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.428.0",
+    "@aws-sdk/lib-dynamodb": "^3.428.0",
+    "axios": "^1.5.1"
+  }
+}

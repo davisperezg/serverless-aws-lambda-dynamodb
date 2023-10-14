@@ -1,0 +1,58 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: postulacion
+
+frameworkVersion: "3"
+
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  profile: "Serverless"
+  region: us-east-1
+
+functions:
+  listPersonas:
+    handler: src/swapi/starwars.findAllPersonas
+    events:
+      - http:
+          method: GET
+          path: /starwars/personas
+  getPersona:
+    handler: src/swapi/starwars.getPersona
+    events:
+      - http:
+          method: GET
+          path: /starwars/personas/{id}
+  createUser:
+    handler: src/users/user.createUser
+    events:
+      - http:
+          method: POST
+          path: /users
+  getUsers:
+    handler: src/users/user.getUsers
+    events:
+      - http:
+          method: GET
+          path: /users
+
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 8181
